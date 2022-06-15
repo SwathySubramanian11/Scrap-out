@@ -1,7 +1,11 @@
 const mongoose=require('mongoose')
 
 const schema=mongoose.Schema({
-    "username":{
+    "owner":{
+      type:String,
+      required:true
+    },
+    "shopname":{
         type:String,
         required:true
     },
@@ -9,7 +13,7 @@ const schema=mongoose.Schema({
         type:String,
         required:true
     },
-    "name":{
+    "address":{
         type:String,
         required:true
     },
@@ -20,11 +24,7 @@ const schema=mongoose.Schema({
     "email":{
         type:String,
         required:true
-    },
-    "address":{
-        type:String,
-        required:true
     }
 })
 
-module.exports=mongoose.model('user_db',schema)
+module.exports=mongoose.model('collector_db',schema)

@@ -3,10 +3,9 @@ const LoginRoutes=require('./LoginRoutes')
 const fs=require('fs')
 const path=require('path')
 
-const publicKey=fs.readFileSync('./publicKey.txt')
-
 module.exports=(req,res,next)=>{
   const authHeader=req.header('Authorization')
+  console.log(authHeader)
   const token=authHeader && authHeader.split(' ')[1]
   if(!token) return res.send({
       success:false,

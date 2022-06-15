@@ -15,7 +15,14 @@ try{
 }
 const user_db=require('../models/user_schema')
 
-const privateKey=fs.readFileSync('./privateKey.txt',{encoding:'utf8', flag:'r'})
+let privateKey=null
+
+try{
+   privateKey=fs.readFileSync(path.join(__dirname,'privateKey.txt'))
+}
+catch(err){
+    console.log(err)
+}
 
 router.post('/sign_up', async (req,res)=>{
   let username=req.body.username
