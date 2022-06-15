@@ -1,6 +1,10 @@
 const mongoose=require('mongoose')
 
 const schema=mongoose.Schema({
+  "username":{
+    type:String,
+    required:true
+  },
   "shopname":{
     type:String,
     required:true
@@ -13,10 +17,6 @@ const schema=mongoose.Schema({
     type:Object,
     required:true
   },
-  "proof":{
-    type:Image,
-    required:true
-  }
 })
 
 module.exports=mongoose.model('order_db',schema)

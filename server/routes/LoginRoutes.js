@@ -13,7 +13,7 @@ try{
 }catch(err){
   console.log(err)
 }
-const user_db=require('../models/user_schema')
+const user_db=require('../models/user/user_schema')
 
 let privateKey=null
 
