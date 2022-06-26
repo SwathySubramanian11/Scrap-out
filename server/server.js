@@ -12,7 +12,7 @@ try{
   console.log(err)
 }
 
-const user_db=require('./models/user_schema')
+const user_db=require('./models/user/user_schema')
 
 app.use(express.urlencoded({extended:false}))
 app.use(express.json())
