@@ -65,4 +65,15 @@ body{
   width:80%;
   height:100%;
   background-color:rgb(255, 242, 235);
+  display:flex;
+  justify-content: center;
+}
+
+.search-bar{
+  width:500px;
+  background-color: white;
+  height:50px;
+  border:1px solid black;
+  border-radius:10px;
+  margin:30px;
 }
