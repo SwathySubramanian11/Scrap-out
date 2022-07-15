@@ -13,7 +13,7 @@ body{
 
 .header{
   height:120px;
-  background-color:rgb(206, 255, 246);
+  background-color:rgb(233, 233, 233);
   width:100%;
   position:absolute;
   top:0;
@@ -47,10 +47,22 @@ body{
   margin-right:40px;
 }
 
-#account{
-  
-}
-
 #logout{
   padding:15px 20px;
+}
+
+.container-wrapper{
+  width:100%;
+  height:calc(100vh - 120px);
+  position:absolute;
+  top:120px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container{
+  width:80%;
+  height:100%;
+  background-color:rgb(255, 242, 235);
 }
