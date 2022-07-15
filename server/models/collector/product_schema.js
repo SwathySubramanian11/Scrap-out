@@ -17,6 +17,9 @@ const schema=mongoose.Schema({
     "Metal":{
       type:Object
     },
+    "Glass":{
+      type:Object
+    },
     "Others":{
       type:Object
     }
