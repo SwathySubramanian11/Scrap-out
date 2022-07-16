@@ -5,7 +5,7 @@ const schema=mongoose.Schema({
         type:String,
         required:true
     },
-    "E-Waste":{
+    "e_waste":{
       type:Object
     },
     "Paper":{
