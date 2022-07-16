@@ -125,12 +125,20 @@ body{
 
 .category{
   height:300px;
+  margin-top:30px;
 }
 
 .category-tile{
   height:100%;
-  border:1px solid black;
+  border:3px solid black;
   border-radius: 10px;
+  cursor: pointer;
+}
+
+.category-tile:hover{
+  transform:scale(0.97);
+  border:3px solid green;
+  box-shadow: 2px 2px 10px rgb(109, 109, 109);
 }
 
 .grid-container{
@@ -153,4 +161,9 @@ img{
   font-family:monospace;
   font-weight: bold;
   text-align: center;
+}
+
+.category-tile-tag:hover{
+  transform: scale(1.09);
+  cursor:pointer;
 }
