@@ -71,8 +71,8 @@ form{
   background: transparent;
 }
 
-.login-button,
-.signup-button{
+#login-button,
+#signup-button{
   width: 85%;
   padding: 10px 30px;
   display: block;
