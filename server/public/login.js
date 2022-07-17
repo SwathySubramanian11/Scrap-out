@@ -50,3 +50,57 @@ signup_button.addEventListener('click',()=>{
   email_field.value=''
   confirm_field.value=''
 })
+
+const signUp=async (contents)=>{
+  try{
+      const response=await fetch('/sign_up',{
+          method:'POST',
+          headers:{
+              'Accept':'application/json',
+              'Content-Type':'application/json',
+          },
+          body:JSON.stringify(contents)
+      })
+      const result=await response.json()
+      return result
+  }
+  catch(err){
+      console.log(err)
+  }
+}
+
+const signIn=async(contents)=>{
+  try{
+      const response=await fetch('/sign_in',{
+          method:'POST',
+          headers:{
+              'Accept':'application/json',
+              'Content-Type':'application/json',
+          },
+          body:JSON.stringify(contents)
+      })
+      const result=await response.json()
+      return result
+  }
+  catch(err){
+      console.log(err)
+  }
+}
+
+const checkLocalStorage=async ()=>{
+  token=localStorage.getItem("token")
+  if(token){
+      window.location.href="dashboard.html"
+  }
+}
+
+const refreshFields=()=>{
+
+}
+
+const begin=()=>{
+  refreshFields()
+  checkLocalStorage()
+}
+
+window.onload=begin()
