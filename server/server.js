@@ -14,6 +14,7 @@ try{
 
 const user_db=require('./models/user/user_schema')
 
+app.use(express.static('public'))
 app.use(express.urlencoded({extended:false}))
 app.use(express.json())
 
