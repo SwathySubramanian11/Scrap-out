@@ -47,7 +47,7 @@ login_button.addEventListener('click',async(e)=>{
   try{
     const loginResponse=await logIn(data)
     if(loginResponse.success===true){
-      console.log(loginResponse.token)
+      localStorage.setItem("token",loginResponse.token)
       window.location.href="dashboard.html"
     }
     else{
