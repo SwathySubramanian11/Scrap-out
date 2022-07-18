@@ -38,10 +38,10 @@ router.post("/sign_up", async (req, res) => {
       const newUser = {
         username: username,
         password: hashedPassword,
-        name:"",
-        phone:"",
-        email:"",
-        address:""
+        name:req.body.name,
+        phone:req.body.phone,
+        email:req.body.email,
+        address:req.body.address
       };
       try {
         let user = await user_db.insertMany(newUser);
@@ -55,7 +55,6 @@ router.post("/sign_up", async (req, res) => {
               address:"",
               items:[]
             };
-            await order_db.insertMany(new_order);
             res.status(200).send({
               success: true,
               user_id: user[0]._id,
