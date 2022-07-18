@@ -7,7 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ScrapOut | shoplist</title>
   <link rel="stylesheet" type="text/css" href="shoplist.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
 <body>
@@ -23,50 +22,51 @@
       </div> 
     <div class="container-list">
         <div class="boxes">
-          <!--
-            <div class="search-bar">
-                <input class="search-field" placeholder="search shop"></input>
-                <i class="material-icons" id="search-icon">
-                  search
-                </i>
-            </div>
-          -->
-          <div class="search-bar">
-            <input type="text" class="search-box" placeholder="search shop, product">
-            <button class="search-btn">search</button>
-        </div>
+          <div class="sort-box-wrapper">
             <div class="sort-tools">
+              <!--
               <div><button id="filter">Filter</button></div>
               <div><button id="sort-by">Sort By</button></div>
               <div><button id="nearest">Nearest</button></div>
+              -->
+              <h3 id="sort-by-head">SORT BY</h3>
+              <ul id="sort-category">
+                <li><a>Nearest</a></li>
+                <li><a>Popular</a></li>
+                <li><a>Distance</a></li>
+                <li><a>Rating</a></li>
+              </ul>
             </div>
+            <div class="box-wrapper">
+              <div class="search-bar">
+                <input type="text" class="search-box" placeholder="search shop, product">
+                <button class="search-btn">search</button>
+              </div>
                 <div class="box">
-                    <img src="shopPic.jpeg" alt=""/>
+                    <img src="media/img/shop1.jpeg" alt=""/>
                     <ul class="shop-details">
-                        <li>Name of shop</li>
+                        <li><h3>V Sign Scrap Traders</h3></li>
                         <li>Price per kg</li>
                         <li>Rating</li>
-                        <li>Location</li>
+                        <li>Vyttila,Ernakulam</li>
                     </ul>
                 </div>
-
                 <div class="box">
-                    <img src="shopPic.jpeg" alt=""/>
+                    <img src="media/img/shop2.jepg" alt=""/>
                     <ul class="shop-details">
-                        <li>Name of shop</li>
+                        <li><h3>Cochin Papers</h3></li>
                         <li>Price per kg</li>
                         <li>Rating</li>
-                        <li>Location</li>
+                        <li>Kaloor, Ernakulam</li>
                     </ul>
                 </div>
-
                 <div class="box">
-                    <img src="shopPic.jpeg" alt=""/>
+                    <img src="media/img/shop3.jpeg" alt=""/>
                     <ul class="shop-details">
-                        <li>Name of shop</li>
+                        <li>Abbas Metal Trading</li>
                         <li>Price per kg</li>
                         <li>Rating</li>
-                        <li>Location</li>
+                        <li>Darshanpura,Banglore</li>
                     </ul>
                 </div>
                 <div class="box">
@@ -77,18 +77,20 @@
                       <li>Rating</li>
                       <li>Location</li>
                   </ul>
-              </div>
-              <div class="box">
-                <img src="shopPic.jpeg" alt=""/>
-                <ul class="shop-details">
+                </div>
+                <div class="box">
+                  <img src="shopPic.jpeg" alt=""/>
+                  <ul class="shop-details">
                     <li>Name of shop</li>
                     <li>Price per kg</li>
                     <li>Rating</li>
                     <li>Location</li>
-                </ul>
+                  </ul>
+                </div>
+              </div>
             </div>
         </div>
-  </div>
+      </div>
   <script src="shoplist.js"></script>
 </body>
 
