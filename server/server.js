@@ -5,6 +5,7 @@ const fs=require('fs')
 const userLoginRoute=require('./routes/userRoutes/loginRoute')
 const expressMongoDb=require('express-mongo-db')
 const collectorLoginRoute=require('./routes/collectorRoutes/loginRoute')
+const userGetRoute=require('./routes/userRoutes/getRoute')
 const collectorAuth=require('./middleware/collectorAuth')
 //const auth=require('./middleware/userAuth')
 
@@ -25,17 +26,7 @@ app.use('/userlogin',userLoginRoute);
 
 app.use('/collectorlogin',collectorLoginRoute);
 
-app.get('/api/get_data', async (req,res)=>{
-  try{
-      result=await Database.find({_id:req.user.user_id})
-      res.json(result)
-  }
-  catch(error){
-      res.status(500).send({
-          success:false
-      })
-  }
-})
+app.use('/user',userGetRoute)
 
 app.listen(5000,()=>{
   console.log('server listening')
