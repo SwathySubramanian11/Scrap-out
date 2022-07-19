@@ -1,0 +1,46 @@
+*{
+    margin:0;
+    padding:0;
+    font-family: sans-serif;
+}
+.bg{
+    height:100%;
+    width:100%;
+    background-color: #1C3738; 
+    position: absolute;
+}
+.formbox{
+    width:380px;
+    height:400px;
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    
+    background-color: rgb(229, 245, 235); 
+    border-radius: 30px;
+}
+.usubmit-btn{
+    width: 40%;
+    padding: 10px 30px;
+    display: block;
+    position: center;
+    border:0;
+    
+    margin: 135px 100px 45px 100px;
+    background: linear-gradient(to right, #D86997,#F2C14E);
+    outline:none;
+    border-radius: 30px;
+
+}
+.csubmit-btn{
+    width: 40%;
+    padding: 10px 30px;
+    display: block;
+    margin: 45px 100px 135px 100px;
+    background: linear-gradient(to right,#916c80, #ffc6d9);
+    border: 0;
+    outline:none;
+    border-radius: 30px;
+
+}

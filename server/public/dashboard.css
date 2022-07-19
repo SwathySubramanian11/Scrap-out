@@ -51,7 +51,7 @@ body{
   padding:5px 10px;
 }
 
-.container-wrapper{
+#container-wrapper{
   width:100%;
   height:calc(100vh - 80px);
   position:absolute;
@@ -139,7 +139,7 @@ body{
 
 .category-tile:hover{
   transform:scale(0.97);
-  border:3px solid green;
+  border:3px solid rgb(35, 145, 35);
   box-shadow: 2px 2px 10px rgb(109, 109, 109);
 }
 
@@ -168,4 +168,110 @@ img{
 .category-tile-tag:hover{
   transform: scale(1.09);
   cursor:pointer;
+}
+
+#container-list{
+  width:100%;
+  position: absolute;
+  top:150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.boxes{
+  width: 60%;
+}
+
+#container-list .search{
+width: 500px;
+display: flex;
+}
+
+#container-list .search-box{
+  width: 60%;
+  height: 20px;
+  padding: 10px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border: 1px solid #d1d1d1;
+  text-transform: capitalize;
+  background: none;
+  color: #a9a9a9;
+  outline: none;
+}
+
+#container-list .search-btn{
+  width: 16%;
+  height: 40px;
+  padding: 10px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: #1C3738;
+  color: #fff;
+  text-transform: capitalize;
+  font-size: 15px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+#container-list .search-box::placeholder{
+  color: #a9a9a9;
+}
+.sort-tools{
+  max-width: 75%;
+  height: 30px;
+  position: relative;
+  padding-bottom: 10px;
+  margin: 10px 0 10px 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-shrink: 5;
+}
+
+#filter,#sort-by,#nearest{
+  display: inline-block;
+  width: 150px;
+  height: 30px;
+  flex-direction: center;
+  align-items: flex-start;
+  text-align: center;
+  cursor: pointer;
+  background-color: #F4FFF8;
+  border: 1px solid #061b1b;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+#filter:focus,#sort-by:focus,#nearest:focus {
+  outline-color: transparent;
+  outline-style:solid;
+  box-shadow: 0 0 0 1px #1C3738;
+}
+.box{
+  display: flex;
+  height:100%;
+  max-width: 100%;
+  flex-direction: center;
+  align-items: flex-start;
+  background: #1C3738;
+  color: #F4FFF8;
+  border-radius: 5px;
+  margin:0 0 10px 0;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.6);
+  padding: 5px 50px;
+}
+.box img{
+  float: left;
+  max-width: 70px;
+  margin: 0 5px 0 0;
+  border-radius: 5px;
+
+  position:relative;
+  top:20px;
+}
+.box ul{
+  list-style: none;
 }

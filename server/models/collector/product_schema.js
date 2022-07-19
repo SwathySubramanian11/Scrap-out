@@ -5,24 +5,24 @@ const schema=mongoose.Schema({
         type:String,
         required:true
     },
-    "E-Waste":{
+    "E-Waste":[{
       type:Object
-    },
-    "Paper":{
+    }],
+    "Paper":[{
       type:Object
-    },
-    "Plastic":{
+    }],
+    "Plastic":[{
       type:Object
-    },
-    "Metal":{
+    }],
+    "Metal":[{
       type:Object
-    },
-    "Glass":{
+    }],
+    "Glass":[{
       type:Object
-    },
-    "Others":{
+    }],
+    "Others":[{
       type:Object
-    }
+    }]
 })
 
 module.exports=mongoose.model('product_db',schema)
