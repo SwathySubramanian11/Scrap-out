@@ -6,6 +6,7 @@ const userLoginRoute=require('./routes/userRoutes/loginRoute')
 const expressMongoDb=require('express-mongo-db')
 const collectorLoginRoute=require('./routes/collectorRoutes/loginRoute')
 const userGetRoute=require('./routes/userRoutes/getRoute')
+const collectorGetRoute=require('./routes/collectorRoutes/getRoute')
 const collectorAuth=require('./middleware/collectorAuth')
 //const auth=require('./middleware/userAuth')
 
@@ -27,6 +28,8 @@ app.use('/userlogin',userLoginRoute);
 app.use('/collectorlogin',collectorLoginRoute);
 
 app.use('/user',userGetRoute)
+
+app.use('/collector',collectorGetRoute)
 
 app.listen(5000,()=>{
   console.log('server listening')
