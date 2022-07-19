@@ -2,9 +2,12 @@ const express=require('express')
 const mongoose=require('mongoose')
 const app=express()
 const fs=require('fs')
-const collectorLoginRoute=require('./routes/collectorRoutes/loginRoute')
+const userLoginRoute=require('./routes/userRoutes/loginRoute')
 const expressMongoDb=require('express-mongo-db')
+const collectorLoginRoute=require('./routes/collectorRoutes/loginRoute')
 const collectorAuth=require('./middleware/collectorAuth')
+const getCollector=require('./routes/collectorRoutes/getRoute')
+//const auth=require('./middleware/userAuth')
 
 try{
   mongoose.connect('mongodb://127.0.0.1:27017/ScrapOut',{useNewUrlParser:true})
@@ -14,11 +17,14 @@ try{
 
 const user_db=require('./models/user/user_schema')
 const collector_db=require('./models/collector/collector_schema')
-// change
+
+app.use(express.static('public'))
 app.use(express.urlencoded({extended:false}))
 app.use(express.json())
 
-app.use('/coll_login',collectorLoginRoute);
+app.use('/userlogin',userLoginRoute);
+app.use('/collectorlogin',collectorLoginRoute);
+app.use('/collector',getCollector);
 
 app.get('/api/get_data', async (req,res)=>{
   try{

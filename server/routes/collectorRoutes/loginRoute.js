@@ -18,36 +18,34 @@ const collector_db = require("../../models/collector/collector_schema");
 const order_list_db = require("../../models/collector/list_schema");
 const product_db = require("../../models/collector/product_schema");
 
-//username
+//shopname
 //password
 
 router.post("/sign_up",async(req,res)=>{
-    let username = req.body.username;
+    let shopname = req.body.shopname;
     let password = req.body.password;
-    const {error} = registerValidation(req.body);
+    /*const {error} = registerValidation(req.body);
     if(error){
         const messageWithoutQuotes = error.details[0].message.replaceAll('"',"");
         return res.status(400).send({
             success: false,
             message: messageWithoutQuotes,
         });
-    }
+    }*/
 
     try{
-        result = await collector_db.find({username:username});
+        result = await collector_db.find({shopname:shopname});
         if(result.length!==0){
             res.status(400).send({
                 success: false,
-                message: "username already exist"
+                message: "shopname already exist"
             });
         } else {
           const hashedPassword = bcrypt.hashSync(password, 10);
-          const newUser = {
-            username: username,
+           newCollector = {
+            shopname: shopname,
             password: hashedPassword,
             owner: req.body.name,
-            shopname: req.body.shopname,
-            password: password,
             address: req.body.address,
             phone: req.body.phone,
             email: req.body.email
@@ -61,17 +59,17 @@ router.post("/sign_up",async(req,res)=>{
                     let order_list_info={
                         _id: collector_id,
                         shopname: req.body.shopname,
-                        orders:{}
+                        orders:[{}]
                         
                     };
                     let product_info={
                         _id: collector_id,
                         shopname: req.body.shopname,
-                        e_waste:{},
-                        paper:{},
-                        plastic:{},
-                        metal:{},
-                        others:{}
+                        e_waste:[{}],
+                        paper:[{}],
+                        plastic:[{}],
+                        metal:[{}],
+                        others:[{}]
 
                     };
                     await order_list_db.insertMany(order_list_info);
@@ -79,7 +77,7 @@ router.post("/sign_up",async(req,res)=>{
                     res.status(200).send({
                         success: true,
                         collector_id: collector[0]._id,
-                        username: username,
+                        shopname: shopname,
                         message: "user registered successfully",
                       });
                 } catch(error){
@@ -98,20 +96,20 @@ router.post("/sign_up",async(req,res)=>{
     }   
 });
 
-const privateKey = fs.readFileSync(
+const privatekey = fs.readFileSync(
     path.join(__dirname, "..","..", "keys", "privateKey.txt")
   );
 
 router.post("/sign_in",async(req,res)=>{
     try{
-        collector=await collector_db.find({username: req.body.username});
+        collector=await collector_db.find({shopname: req.body.shopname});
         if(collector.length === 0){
             return res.status(400).send({
                 sucess: false,
-                message: "username doesn't exist",
+                message: "shopname doesn't exist",
             });
         }
-        const validPass= bcrypt.compareSync(req.body.password);
+        const validPass= bcrypt.compareSync(req.body.password,collector[0].password);
 
         if(!validPass)
             return res.status(400).send({
@@ -120,9 +118,9 @@ router.post("/sign_in",async(req,res)=>{
             });
         const payload = {
             collector_id:collector[0].id,
-            username: req.body.username
+            shopname: req.body.shopname
         }
-        const token= jwt.sign(payload,privateKey,{
+        const token= jwt.sign(payload,privatekey,{
             expiresIn: "12h",
             algorithm: "RS256",
         })

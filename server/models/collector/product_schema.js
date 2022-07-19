@@ -5,21 +5,21 @@ const schema=mongoose.Schema({
         type:String,
         required:true
     },
-    "e_waste":{
+    "e_waste":[{
       type:Object
-    },
-    "Paper":{
+    }],
+    "Paper":[{
       type:Object
-    },
-    "Plastic":{
+    }],
+    "Plastic":[{
       type:Object
-    },
-    "Metal":{
+    }],
+    "Metal":[{
       type:Object
-    },
-    "Others":{
+    }],
+    "Others":[{
       type:Object
-    }
+    }]
 })
 
 module.exports=mongoose.model('product_db',schema)

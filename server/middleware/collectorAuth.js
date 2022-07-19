@@ -15,10 +15,10 @@ const order_list_db = require("../models/collector/list_schema");
 const product_db = require("../models/collector/product_schema");
 
 const publicKey = fs.readFileSync(
-  path.join(__dirname, "..", "keys", "publicKey.txt")
+  path.join(__dirname, "..", "keys", "publickey.txt")
 );
 
-const userAuth = (req, res, next) => {
+const collectorAuth = (req, res, next) => {
   const authHeader = req.header("Authorization");
   const token = authHeader && authHeader.split(" ")[1];
   if (!token)
@@ -38,4 +38,4 @@ const userAuth = (req, res, next) => {
   }
 };
 
-module.exports = userAuth;
+module.exports = collectorAuth;
