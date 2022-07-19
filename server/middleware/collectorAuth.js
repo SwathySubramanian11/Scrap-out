@@ -5,22 +5,20 @@ const fs = require("fs");
 const path = require("path");
 
 try {
-  mongoose.connect("mongodb://127.0.0.1:27017/ExpenseDB", {
-    useNewUrlParser: true,
-  });
+  mongoose.connect('mongodb://127.0.0.1:27017/ScrapOut',{useNewUrlParser:true});
 } catch (err) {
   console.log(err);
 }
 
-const expense_db = require("../models/expense_schema");
-const user_db = require("../models/user_schema");
-const info_db = require("../models/info_schema.js");
+const collector_db = require("../models/collector/collector_schema");
+const order_list_db = require("../models/collector/list_schema");
+const product_db = require("../models/collector/product_schema");
 
 const publicKey = fs.readFileSync(
-  path.join(__dirname, "..", "keys", "publicKey.txt")
+  path.join(__dirname, "..", "keys", "publickey.txt")
 );
 
-const userAuth = (req, res, next) => {
+const collectorAuth = (req, res, next) => {
   const authHeader = req.header("Authorization");
   const token = authHeader && authHeader.split(" ")[1];
   if (!token)
@@ -40,4 +38,4 @@ const userAuth = (req, res, next) => {
   }
 };
 
-module.exports = userAuth;
+module.exports = collectorAuth;
