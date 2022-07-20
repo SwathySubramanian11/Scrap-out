@@ -1,0 +1,38 @@
+<html>
+<head>
+    <title>Scrap Out</title>
+    <link rel="stylesheet" type="text/css" href="clogin.css">
+</head>
+<body>
+  <div class="bg">
+    <div class="formbox">
+      <div class="button-box">
+        <button id="login-toggle-btn" style="background:linear-gradient(to right,#cb69d8, #ffc6d9) ;">Log in</button>
+        <button id="signup-toggle-btn">Sign up</button>
+      </div>
+      <div class="form-container">
+        <form id="login" class="input-group">
+          <input class="input-field" id="user-id" placeholder="User id" required>
+          <input type="password" class="input-field" id="password" placeholder="Password" required>
+          <div class="remember-container">
+            <input type="checkbox" class="check-box">
+            <span>Remember password</span>
+          </div> 
+          <button type="submit" id="login-button">Log in</button>
+        </form>
+        <form id="sign-up" class="input-group" style="display:none">
+          <input class="input-field" id="signup-user-id" placeholder="Shop Name" required>
+          <input type="name" class="input-field" id="name"placeholder="Name" required>
+          <input type="email" class="input-field" id="email"placeholder="Email id" required>
+          <input type="address" class="input-field" id="address"placeholder="Address" required>
+          <input type="phone-no" class="input-field" id="phone-no"placeholder="Phone no" required>
+          <input type="password" class="input-field" placeholder="Password" id="signup-password"required> 
+          <input type="password" class="input-field" id="confirm" placeholder="Confirm password">  
+          <button type="submit" id="signup-button">Register</button>
+        </form>  
+      </div>     
+    </div>      
+  </div>
+  <script src="clogin.js"></script>
+</body>
+</html>

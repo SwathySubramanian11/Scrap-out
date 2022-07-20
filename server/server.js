@@ -26,18 +26,6 @@ app.use('/userlogin',userLoginRoute);
 app.use('/collectorlogin',collectorLoginRoute);
 app.use('/collector',getCollector);
 
-app.get('/api/get_data', async (req,res)=>{
-  try{
-      result=await Database.find({_id:req.user.user_id})
-      res.json(result)
-  }
-  catch(error){
-      res.status(500).send({
-          success:false
-      })
-  }
-})
-
 app.listen(5000,()=>{
   console.log('server listening')
 })

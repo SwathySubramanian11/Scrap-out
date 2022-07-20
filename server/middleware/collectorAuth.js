@@ -28,7 +28,7 @@ const collectorAuth = (req, res, next) => {
     });
   try {
     const verified = jwt.verify(token, publicKey, { algorithms: ["RS256"] });
-    req.user = verified;
+    req.collector = verified;
     next();
   } catch (error) {
     res.send({

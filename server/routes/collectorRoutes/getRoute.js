@@ -1,6 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const auth = require("../../middleware/userAuth");
+const auth = require("../../middleware/collectorAuth");
 
 const router=express.Router()
 
@@ -19,7 +19,8 @@ const product_db=require('../../models/collector/product_schema')
 
 router.get('/get_account',auth,async(req,res)=>{
   try{
-    result=await collector_db.find({_id:req.user.collector_id})
+    result=await collector_db.find({_id:req.collector.collector_id})
+    console.log(result)
     res.json(result[0])
   }catch(error){
     res.status(500).send({
@@ -32,7 +33,7 @@ router.get('/get_account',auth,async(req,res)=>{
 
 router.get('/get_orders',auth,async(req,res)=>{
     try{
-      result=await list_db.find({_id:req.user.collector_id})
+      result=await list_db.find({_id:req.collector.collector_id})
       res.json(result[0])
     }catch(error){
       res.status(500).send({
@@ -45,7 +46,7 @@ router.get('/get_orders',auth,async(req,res)=>{
 
 router.get('/get_products',auth,async(req,res)=>{
     try{
-      result=await product_db.find({_id:req.user.collector_id})
+      result=await product_db.find({_id:req.collector.collector_id})
       res.json(result[0])
     }catch(error){
       res.status(500).send({
