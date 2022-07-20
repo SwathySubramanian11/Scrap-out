@@ -14,7 +14,7 @@ html{
   
   .header{
     height:120px;
-    background-color:rgb(206, 255, 246);
+    background-color:#1C3738;
     width:100%;
     position:absolute;
     top:0;
@@ -27,6 +27,7 @@ html{
     font-size: 2.1rem;
     font-family: monospace;
     font-weight: bolder;
+    color: #e4f7eb;
     margin:40px auto 40px 70px;
   }
   
@@ -70,7 +71,7 @@ html{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #D5F0DF;
+    background-color: #e4f7eb;
   }
 
 .boxes{
@@ -105,7 +106,7 @@ html{
     border: none;
     outline: none;
     cursor: pointer;
-    background: #1C3738;
+    background: #1C3738;/*1C3738*/
     color: #fff;
     text-transform: capitalize;
     font-size: 15px;
@@ -151,8 +152,8 @@ html{
     height: 200px;
     align-items: flex-start;
     
-    background: #1C3738;
-    color: #F4FFF8;
+    background: #fff;
+    color: #1C3738;
     border-radius: 5px;
     margin:0 0 10px 0;
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.6);
