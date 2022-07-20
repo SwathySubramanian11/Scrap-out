@@ -221,7 +221,7 @@ img{
   /*background:#2b7072;*/
   background-color: #1c3738;
   color: #ffffff;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(87, 70, 70, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 .cart-details{
@@ -247,6 +247,6 @@ p{
   font-weight: bold;
 }
 .button-add{
-  font-weight: lighter;
+  font-weight: light;
 }
 
