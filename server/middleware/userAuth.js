@@ -15,7 +15,7 @@ try {
 const user_db=require('../models/user/user_schema.js')
 
 const publicKey = fs.readFileSync(
-  path.join(__dirname, "..", "keys", "publicKey.txt")
+  path.join(__dirname, "..", "keys", "publickey.txt")
 );
 
 const userAuth = (req, res, next) => {

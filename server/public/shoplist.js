@@ -1,6 +1,8 @@
-
+let boxContainer=document.getElementById('box-container')
 
 let token=null
+
+
 
 const checkLocalStorage=()=>{
   token=localStorage.getItem("token")

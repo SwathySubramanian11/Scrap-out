@@ -3,7 +3,6 @@ const mongoose=require('mongoose')
 const schema=mongoose.Schema({
     "owner":{
       type:String,
-      required:true
     },
     "shopname":{
         type:String,
@@ -15,15 +14,12 @@ const schema=mongoose.Schema({
     },
     "address":{
         type:String,
-        required:true
     },
     "phone":{
         type:String,
-        required:true
     },
     "email":{
         type:String,
-        required:true
     }
 })
 
