@@ -91,7 +91,7 @@ html{
     align-items: center;
   }
 
-  .product-details{
+  .product-details,.placeOrder-container{
     /*border: 2px solid rgb(192, 243, 151);*/
     width: 70%;
     display: flex;
@@ -126,6 +126,26 @@ html{
     /*border: 2px solid rgb(56, 52, 12);*/
   }
 
+  .placeOrder-container{
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 10px;
+    background-color: #1c3738;
+    color: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(87, 70, 70, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  }
+
+  input{
+    padding: 2px 10px 2px 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    outline: none;
+    border: 0;
+  }
+
 /*img styling*/
 
 .container-img{
@@ -151,7 +171,7 @@ img{
     height: 25%;
     align-self: center;
     position: relative;
-    left: 150px;
+    left: 100px;
   }
 
   .button-cart{
@@ -165,4 +185,8 @@ img{
     border: 0;
     outline:none;
     border-radius: 10px;
+  }
+
+  #confirmOrder-container{
+    left: 2px;
   }
