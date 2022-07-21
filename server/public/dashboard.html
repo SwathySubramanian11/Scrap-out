@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScrapOut | dashboard</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" type="text/css" href="dashboard.css">
+</head>
+
+<body>
+  <div class="main-container">
+    <div class="header">
+      <p id="scrapout-tag">ScrapOut</p>
+      <div class="link-container">
+        <p id="home">Home</p>
+        <p id="account">Account</p>
+        <button id="logout">Log Out</button>
+      </div>
+    </div>
+    <div id="container-wrapper">
+      <div class="container">
+        <div class="search-bar">
+          <input class="search-field" placeholder="search products"></input>
+          <i class="material-icons" id="search-icon">
+            search
+          </i>
+        </div>
+        <p class="category-tag">Categories</p>
+        <div class="line">-</div>
+        <div class="grid-container">
+          <div class="category" id="paper">
+            <div class="category-tile" >
+              <img src="images/paper.png" alt="paper">
+            </div>
+            <p class="category-tile-tag">Paper</p>
+          </div>
+          <div class="category" id="e-waste">
+            <div class="category-tile">
+              <img src="images/e_waste.jpeg" alt="e_waste">
+            </div>
+            <p class="category-tile-tag">E-Waste</p>
+          </div>
+          <div class="category" id="plastic">
+            <div class="category-tile">
+              <img src="images/plastic.png" alt="plastic">
+            </div>
+            <p class="category-tile-tag">Plastic</p>
+          </div>
+          <div class="category" id="metal">
+            <div class="category-tile">
+              <img src="images/metal.png" alt="metal">
+            </div>
+            <p class="category-tile-tag">Metal</p>
+          </div>
+          <div class="category" id="glass">
+            <div class="category-tile">
+              <img src="images/glass.png" alt="glass">
+            </div>
+            <p class="category-tile-tag">Glass</p>
+          </div>
+          <div class="category" id="others">
+            <div class="category-tile">
+              <img src="images/trash.jpg" alt="others">
+            </div>
+            <p class="category-tile-tag">Others</p>
+          </div>
+        </div>
+      </div>     
+    </div>
+  </div>
+  <script src="dashboard.js"></script>
+</body>
+
+</html>
