@@ -3,25 +3,36 @@ let boxContainer=document.getElementById('box-container')
 
 let token=null
 let params=null
+let current_category=null
 
-const renderData=(json)=>{
-  let data=json
-  console.log(data)
-  for(let shop=0;shop<data.length;shop++){
-    console.log(data[shop])
-    let boxNode=`
-        <div class="box" id="${data[shop].id}">
-          <img src="images/shopPic.jpeg" alt=""/>
-          <ul class="shop-details">
-              <li><h3>${data[shop].shopname}</h3></li>
-              <li>Price per kg</li>
-              <li>Rating</li>
-              <li>${data[shop].address}</li>
-          </ul>
-        </div>
-    `
-    boxContainer.innerHTML+=boxNode
+const renderData=(shop,shopInfo)=>{
+  let productNode=''
+
+  for(let i=0;i<shop[current_category].length;i++){
+    console.log(i)
+
+    let current_subCategory=shop[current_category][i]
+    let subCategory=Object.keys(current_subCategory)[0]
+    let price=current_subCategory[subCategory]
+    
+    productNode+=`<li>${subCategory} ${price}/kg</li>`
+    console.log(productNode)
   }
+  
+  let boxNode=`
+      <div class="box" id="${shop._id}">
+        <img src="images/shopPic.jpeg" alt=""/>
+        <ul class="shop-details">
+            <li><h3>${shopInfo.shopname}</h3></li>
+            <li>${current_category}</li>
+            ${productNode}
+            <li>Rating</li>
+            <li>${shopInfo.address}</li>
+        </ul>
+      </div>
+  `
+  boxContainer.innerHTML+=boxNode
+  
 }
 
 const checkLocalStorage=async()=>{
@@ -30,15 +41,14 @@ const checkLocalStorage=async()=>{
     window.location.href="index.html"
   }
   params=new URLSearchParams(window.location.search)
-  console.log(params.get('category'))
+  current_category=params.get('category')
   try{
     let response=await getSelectedProduct({selected:params.get('category')},token)
     console.log(response)
     for(let shop=0;shop<response.length;shop++){
-      console.log(response[shop].shopname)
       try{
         let shopInfo=await getCollectorAccount({collector:response[shop].shopname},token)
-        console.log(shopInfo)
+        renderData(response[shop],shopInfo)
       }catch(error){
         console.log(error)
       }
