@@ -35,13 +35,7 @@ const renderData=(shop,shopInfo)=>{
   
 }
 
-const checkLocalStorage=async()=>{
-  token=localStorage.getItem("token")
-  if(!token){
-    window.location.href="index.html"
-  }
-  params=new URLSearchParams(window.location.search)
-  current_category=params.get('category')
+const clickingCategoryToShop=async()=>{
   try{
     let response=await getSelectedProduct({selected:params.get('category')},token)
     console.log(response)
@@ -56,7 +50,16 @@ const checkLocalStorage=async()=>{
   }catch(error){
     console.log(error)
   }
-  
+}
+
+const checkLocalStorage=()=>{
+  token=localStorage.getItem("token")
+  if(!token){
+    window.location.href="index.html"
+  }
+  params=new URLSearchParams(window.location.search)
+  current_category=params.get('category')
+  clickingCategoryToShop()
 }
 
 const getCollectorAccount=async (contents,token)=>{
