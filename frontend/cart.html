@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ScrapOut | Cart</title>
+        <link rel="stylesheet" type="text/css" href="cart.css">
+    </head>
+
+    <body>
+        <div class="main-container">
+            <div class="header">
+                <div id="scrapout-tag-container">
+                  <img src="images/ScrapOut icon.png">
+                </div>
+                <!--<p id="scrapout-tag">ScrapOut</p>-->
+                <div class="link-container">
+                  <p id="home">Home</p>
+                  <p id="account">Account</p>
+                  <button id="logout">Log Out</button>
+                </div>
+            </div>
+        <div class="container-wrapper">
+            <div class="cart-wrapper">
+                <div class="cart-container">
+                    <h2>My cart</h2>
+                    <div class="product-details">
+                        <div class="container-img">
+                            <img class="product-img" src="images/paper.png">
+                        </div>
+                        <div class="product-text">
+                            <p id="item-title">News paper</p>
+                            <p>Price: 30 Rs/kg</p>
+                            <p>Qty: 2 kg </p>
+                        </div>
+                        <div class="price-container">
+                            <p>Total: 60 Rs </p>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <div class="container-img">
+                            <img class="product-img" src="images/plastic.png">
+                        </div>
+                        <div class="product-text">
+                            <p id="item-title">Plastic bottles</p>
+                            <p>Price: 30 Rs/kg</p>
+                            <p>Qty: 2 kg </p>
+                        </div>
+                        <div class="price-container">
+                            <p>Total: 60 Rs </p>
+                        </div>
+                    </div>
+                    <div class="product-details" id="product-cart">
+                        <div class="cart-details">
+                          <p>Grand Total: 120 Rs</p>
+                        </div>
+                        <div class="button-container" id="bookSlot-container">
+                          <button class="button-cart">Book a slot</button>
+                        </div>
+                    </div>
+                    <div class="placeOrder-container">
+                        <div class="cart-details">
+                            <label for="chooseDate">Choose your preffered date</label><br>
+                            <input type="date" id="chooseDate" name="date">
+                        </div>
+                        <div class="button-container" id="confirmOrder-container">
+                            <button class="button-cart">Confirm Order</button>
+                        </div>
+                    </div>
+                    <div class="orderSummary-container">
+                        
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="dashboard.js"></script>
+    </body>
+
+</html>
