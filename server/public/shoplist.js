@@ -1,22 +1,32 @@
 let boxContainer=document.getElementById('box-container')
-
+let box=document.getElementsByClassName('box')
 
 let token=null
 let params=null
 let current_category=null
 
+const addEventListenerForBoxes=()=>{
+  for(let i=0;i<box.length;i++){
+    box[i].addEventListener('click',()=>{
+      const url=new URL(`http://localhost:5000/shop.html?category=${current_category}`)
+      url.searchParams.delete('id')
+      url.searchParams.append('id',box[i].id)
+      const newUrl=url.toString()
+      window.location.href=newUrl
+    })
+  }
+}
+
 const renderData=(shop,shopInfo)=>{
   let productNode=''
 
   for(let i=0;i<shop[current_category].length;i++){
-    console.log(i)
 
     let current_subCategory=shop[current_category][i]
     let subCategory=Object.keys(current_subCategory)[0]
     let price=current_subCategory[subCategory]
     
     productNode+=`<li>${subCategory} ${price}/kg</li>`
-    console.log(productNode)
   }
   
   let boxNode=`
@@ -38,11 +48,14 @@ const renderData=(shop,shopInfo)=>{
 const clickingCategoryToShop=async()=>{
   try{
     let response=await getSelectedProduct({selected:params.get('category')},token)
-    console.log(response)
+    if(response.success===false && response.message==='invalid token')
+      window.location.href="index.html"
+
     for(let shop=0;shop<response.length;shop++){
       try{
         let shopInfo=await getCollectorAccount({collector:response[shop].shopname},token)
         renderData(response[shop],shopInfo)
+        addEventListenerForBoxes()
       }catch(error){
         console.log(error)
       }
