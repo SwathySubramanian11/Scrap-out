@@ -3,6 +3,10 @@ containerInfo=document.getElementById('container-info')
 shopnameTag=document.getElementById('shopname-tag')
 subProducts=document.getElementsByClassName('sub-products')
 productWrapper=document.getElementById('product-wrapper')
+expandMore=document.getElementsByClassName('expand_more')
+expandLess=document.getElementsByClassName('expand_less')
+categoryHead=document.getElementsByClassName('category-head')
+expand=document.getElementsByClassName('material-symbols-outlined')
 
 let token=''
 let current_id=''
@@ -27,6 +31,76 @@ const mapPicturesToCategory=(category)=>{
     case 'Others':
       return 'trash.jpg'
   }
+}
+
+const expansionEventListener=()=>{
+
+  const expansionMoreEventListener=()=>{
+    for(let i=0;i<expandMore.length;i++){
+      expandMore[i].addEventListener('click',()=>{        
+        //expandMore[i].className='material-symbols-outlined expand_less'
+        //expandMore[i].innerHTML='expand_less'
+        //expansionLessEventListener()
+
+        let node=document.createElement("span")
+        let textNode=document.createTextNode('expand_less')
+        node.appendChild(textNode)
+        node.className='material-symbols-outlined expand_less'
+
+        console.log(node)
+        expandMore[i].parentNode.appendChild(node)
+        expandMore[i].parentNode.removeChild(expandMore[i])
+        expansionLessEventListener()
+      })
+    }
+    
+  }
+
+  const expansionLessEventListener=()=>{
+    for(let i=0;i<expandLess.length;i++){
+      expandLess[i].addEventListener('click',()=>{   
+        //expandLess[i].className='material-symbols-outlined expand_more'
+        //expandLess[i].innerHTML='expand_more'
+        //expansionMoreEventListener()
+        let node=document.createElement("span")
+        let textNode=document.createTextNode('expand_more')
+        node.appendChild(textNode)
+        node.className='material-symbols-outlined expand_more'
+
+        console.log(node)
+        expandLess[i].parentNode.appendChild(node)
+        expandLess[i].parentNode.removeChild(expandLess[i])
+        expansionMoreEventListener()
+      })
+    }
+  } 
+  
+  expansionMoreEventListener()
+  expansionLessEventListener()
+  
+}
+
+const expandToggle=()=>{
+
+  for(let i=0;i<expand.length;i++){
+    //console.log(expand[i])
+    expand[i].addEventListener('click',()=>{
+      let subProductElement=expand[i].parentNode.parentNode.lastElementChild
+      if(expand[i].innerHTML==='expand_less'){
+        subProductElement.style.display="none"
+        expand[i].innerHTML='expand_more'
+        expand[i].className='material-symbols-outlined expand_more'
+        
+      }
+      else if(expand[i].innerHTML==='expand_more'){
+        subProductElement.style.display=""
+        expand[i].innerHTML='expand_less'
+        expand[i].className='material-symbols-outlined expand_less'
+        
+      }
+    })
+  }
+
 }
 
 const renderData=(shop,shopProducts)=>{
@@ -67,6 +141,7 @@ const renderData=(shop,shopProducts)=>{
           <div class="product-text">
             <p id="${category}" class="item-title">${category}</p>
           </div>  
+          <span class="material-symbols-outlined ${display==="none"? 'expand_more':'expand_less'}">${display==="none"? 'expand_more':'expand_less'}</span>
         </div>             
         <div class="sub-products" style="display:${display}">
           ${subProductNode(category)}
@@ -75,6 +150,20 @@ const renderData=(shop,shopProducts)=>{
     `
     productWrapper.innerHTML+=productCategoryNode
   }
+  productWrapper.innerHTML+=`
+      <div class="product-details" id="product-cart">
+        <div class="cart-details">
+          <p>1 Item</p>
+          <p>Reward: Rs</p>
+        </div>
+        <div class="button-container">
+          <button class="button-cart">View cart</button>
+        </div>
+      </div>
+  `
+
+  //expansionEventListener()
+  expandToggle()
 
 }
 
