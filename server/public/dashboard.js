@@ -13,6 +13,8 @@ for(let categ=0;categ<category.length;categ++){
   category[categ].addEventListener('click',()=>{
     let current_category=category[categ].id
     console.log(current_category)
+    localStorage.removeItem('current_category')
+    localStorage.setItem('current_category',current_category)
     const url=new URL('http://localhost:5000/shoplist.html')
     url.searchParams.delete('category')
     url.searchParams.append('category',current_category)

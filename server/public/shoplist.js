@@ -8,6 +8,8 @@ let current_category=null
 const addEventListenerForBoxes=()=>{
   for(let i=0;i<box.length;i++){
     box[i].addEventListener('click',()=>{
+      localStorage.removeItem('current_id')
+      localStorage.setItem('current_id',box[i].id)
       const url=new URL(`http://localhost:5000/shop.html?category=${current_category}`)
       url.searchParams.delete('id')
       url.searchParams.append('id',box[i].id)
@@ -26,7 +28,7 @@ const renderData=(shop,shopInfo)=>{
     let subCategory=Object.keys(current_subCategory)[0]
     let price=current_subCategory[subCategory]
     
-    productNode+=`<li>${subCategory} ${price}/kg</li>`
+    productNode+=`<li>${subCategory} ₹${price}/kg</li>`
   }
   
   let boxNode=`

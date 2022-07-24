@@ -96,4 +96,24 @@ router.post('/get_selected_product',auth,async(req,res)=>{
   }
 })
 
+//this get route will return collector details when 
+//collector id is provided
+
+router.post('/get_selected_collector',auth,async(req,res)=>{
+  let id=req.body.id
+  try{
+    result_collector=await collector_db.find({_id:id})
+    result_products=await product_db.find({_id:id})
+    result_collector.push(result_products[0])
+    res.json(result_collector)
+  }
+  catch(error){
+    res.status(500).send({
+      action:"failed to get information",
+      success:false
+    })
+    return
+  }
+})
+
 module.exports=router;
