@@ -248,7 +248,7 @@ img{
   border-radius: 10px;
 }
 
-.button-cart{
+#button-cart{
   width: 10rem;
   height: 2rem;
   float: right;

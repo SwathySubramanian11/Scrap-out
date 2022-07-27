@@ -1,3 +1,4 @@
+
 viewCartButton=document.getElementById('button-cart')
 containerInfo=document.getElementById('container-info')
 shopnameTag=document.getElementById('shopname-tag')
@@ -7,14 +8,20 @@ expandMore=document.getElementsByClassName('expand_more')
 expandLess=document.getElementsByClassName('expand_less')
 categoryHead=document.getElementsByClassName('category-head')
 expand=document.getElementsByClassName('material-symbols-outlined')
+addButton=document.getElementsByClassName('button-add')
+buttonCart=document.getElementById('button-cart')
 
 let token=''
 let current_id=''
 let current_category=''
+let count=0
+let Totalprice=0
 
 //viewCartButton.addEventListener('click',()=>{
 //  window.location.href="cart.html"
 //})
+
+
 
 const mapPicturesToCategory=(category)=>{
   switch(category){
@@ -33,51 +40,49 @@ const mapPicturesToCategory=(category)=>{
   }
 }
 
-const expansionEventListener=()=>{
+const updateViewCart=(count,price)=>{
+  let countTag=productWrapper.lastElementChild.firstElementChild.firstElementChild
+  countTag.innerHTML=`${count} Items selected`
+  let priceTag=productWrapper.lastElementChild.firstElementChild.lastElementChild
+  priceTag.innerHTML=`Maximum Reward: ₹ ${price}`
+}
 
-  const expansionMoreEventListener=()=>{
-    for(let i=0;i<expandMore.length;i++){
-      expandMore[i].addEventListener('click',()=>{        
-        //expandMore[i].className='material-symbols-outlined expand_less'
-        //expandMore[i].innerHTML='expand_less'
-        //expansionLessEventListener()
-
-        let node=document.createElement("span")
-        let textNode=document.createTextNode('expand_less')
-        node.appendChild(textNode)
-        node.className='material-symbols-outlined expand_less'
-
-        console.log(node)
-        expandMore[i].parentNode.appendChild(node)
-        expandMore[i].parentNode.removeChild(expandMore[i])
-        expansionLessEventListener()
-      })
+const EventListenerForAddButton=(shopname)=>{
+  const getDirectInnerText=(element)=>{
+    var childNodes = element.childNodes;
+    result = '';
+    for (var i = 0; i < childNodes.length; i++) {
+      if(childNodes[i].nodeType == 3) {
+        return childNodes[i].data;
+      }
     }
-    
+  
   }
 
-  const expansionLessEventListener=()=>{
-    for(let i=0;i<expandLess.length;i++){
-      expandLess[i].addEventListener('click',()=>{   
-        //expandLess[i].className='material-symbols-outlined expand_more'
-        //expandLess[i].innerHTML='expand_more'
-        //expansionMoreEventListener()
-        let node=document.createElement("span")
-        let textNode=document.createTextNode('expand_more')
-        node.appendChild(textNode)
-        node.className='material-symbols-outlined expand_more'
-
-        console.log(node)
-        expandLess[i].parentNode.appendChild(node)
-        expandLess[i].parentNode.removeChild(expandLess[i])
-        expansionMoreEventListener()
-      })
-    }
-  } 
-  
-  expansionMoreEventListener()
-  expansionLessEventListener()
-  
+  for(let i=0;i<addButton.length;i++){
+    addButton[i].addEventListener('click',async()=>{
+      let category=getDirectInnerText(addButton[i].parentNode.firstElementChild)
+      category=category.trim()
+      let price=addButton[i].parentNode.firstElementChild.firstElementChild.textContent.split(' ')
+      price=price[1]
+      let contents={
+        category:category,
+        price:price,
+        shopname:shopname
+      }
+      console.log(contents)
+      try{
+        response=await addOrEditItem(contents,token)
+        if(response.success===true){
+          addButton[i].innerHTML='Added!'
+          count++
+          updateViewCart(count,price)
+        }
+      }catch(error){
+        console.log(error)
+      }
+    })
+  }
 }
 
 const expandToggle=()=>{
@@ -103,10 +108,16 @@ const expandToggle=()=>{
 
 }
 
-const renderData=(shop,shopProducts)=>{
+const renderData=async(shop,shopProducts)=>{
   shopnameTag.innerHTML=shop.shopname
-
-  console.log(shopProducts)
+  alreadyOrdered=await getOrderDetails(token)
+  console.log(alreadyOrdered)
+  count=alreadyOrdered.items.length
+  for(let i=0;i<alreadyOrdered.items.length;i++){
+    let currentKey=alreadyOrdered.items[i].key
+    Totalprice+=parseInt(alreadyOrdered.items[i][currentKey])
+  }
+  
 
   let subProductNode=(category)=>{
     let node=''
@@ -116,7 +127,7 @@ const renderData=(shop,shopProducts)=>{
       node+=`
         <div class="product">
           <p id="item-title" class="item-title" >${current_sub}
-            <span class="item-title">₹ ${current[current_sub]}/kg</span>
+            <span class="item-title">₹ ${current[current_sub]} /kg</span>
           </p>
           <button class="button-add">Add</button>
         </div>
@@ -153,18 +164,21 @@ const renderData=(shop,shopProducts)=>{
   productWrapper.innerHTML+=`
       <div class="product-details" id="product-cart">
         <div class="cart-details">
-          <p>1 Item</p>
-          <p>Reward: Rs</p>
+          <p>${count} Items selected</p>
+          <p>Maximum Reward: ₹ ${Totalprice}</p>
         </div>
         <div class="button-container">
-          <button class="button-cart">View cart</button>
+          <button id="button-cart">View cart</button>
         </div>
       </div>
   `
+  productWrapper.lastElementChild.lastElementChild.lastElementChild.addEventListener('click',()=>{
+    window.location.href="cart.html"
+  })
 
   //expansionEventListener()
   expandToggle()
-
+  EventListenerForAddButton(shop.shopname)
 }
 
 const checkLocalStorage=async()=>{
@@ -205,4 +219,42 @@ const getCollectorAccountAndProducts=async (contents,token)=>{
 }
 
 
+const addOrEditItem=async (contents,token)=>{
+  try{
+    const response=await fetch('/user/post/edit_order',{
+      method:'POST',
+        headers:{
+            'Accept':'application/json',
+            'Content-Type':'application/json',
+            'Authorization':'Bearer '+token
+        },
+        body:JSON.stringify(contents)
+    })
+    const result=await response.json()
+    console.log(result)
+    return result
+  }
+  catch(e){
+    console.log(e)
+  }
+}
+
+const getOrderDetails=async (token)=>{
+  try{
+    const response=await fetch('/user/get_order',{
+      method:'GET',
+        headers:{
+            'Accept':'application/json',
+            'Content-Type':'application/json',
+            'Authorization':'Bearer '+token
+        }
+    })
+    const result=await response.json()
+    console.log(result)
+    return result
+  }
+  catch(e){
+    console.log(e)
+  }
+}
 window.onload=checkLocalStorage()

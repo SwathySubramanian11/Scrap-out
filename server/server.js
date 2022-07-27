@@ -7,6 +7,7 @@ const expressMongoDb=require('express-mongo-db')
 const collectorLoginRoute=require('./routes/collectorRoutes/loginRoute')
 const userGetRoute=require('./routes/userRoutes/getRoute')
 const collectorGetRoute=require('./routes/collectorRoutes/getRoute')
+const userPostRoute=require('./routes/userRoutes/postRoute')
 const collectorAuth=require('./middleware/collectorAuth')
 //const auth=require('./middleware/userAuth')
 
@@ -28,6 +29,8 @@ app.use('/userlogin',userLoginRoute);
 app.use('/collectorlogin',collectorLoginRoute);
 
 app.use('/user',userGetRoute)
+
+app.use('/user/post',userPostRoute)
 
 app.use('/collector',collectorGetRoute)
 

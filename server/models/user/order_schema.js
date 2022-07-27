@@ -7,16 +7,11 @@ const schema=mongoose.Schema({
   },
   "shopname":{
     type:String,
-    required:true
   },
   "address":{
     type:String,
-    required:true
   },
-  "items":{
-    type:Object,
-    required:true
-  },
+  "items":[{}],
 })
 
 module.exports=mongoose.model('order_db',schema)
