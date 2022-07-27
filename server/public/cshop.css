@@ -1,0 +1,252 @@
+html{
+    min-height:100%;
+    width:100%;
+  }
+  
+  body{
+    width:100%;
+    min-height: 100%;
+    height:100%;
+    margin:0;
+    padding:0;
+    background-color: #e4f7eb;
+  }
+  
+  .header{
+    height:80px;
+    width:100%;
+    position:absolute;
+    top:0;
+    display:flex;
+    flex-direction: row;
+    background-color:#1c3738;
+    color: #ffffff;
+  }
+
+  #scrapout-tag{
+    margin-right:auto;
+    font-size: 2rem;
+    font-family: monospace;
+    font-weight: bolder;
+    margin:20px auto 40px 70px;
+  }
+
+  .link-container{
+    margin-right:50px;
+    position: relative;
+    left:55%;
+  }
+
+#home,
+#account,
+#logout{
+  display:inline-block;
+  margin:30px 20px 50px 0;
+  font-size:1rem;
+  font-family:monospace;
+  font-weight: bold;
+}
+
+#home{
+    margin-right:40px;
+}
+  
+#logout{
+    margin-left: 30px;
+    padding:8px 15px 8px 15px;
+    background-color: #D86997;
+    color: #ffffff;
+    border: 0;
+    border-radius: 10px;
+}
+/*--------------*/
+
+.container-wrapper{
+  width:100%;
+  height:100%;
+  background-color:transparent;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: monospace;
+}
+
+.container-align-wrapper{
+  /*border: 2px solid rgb(255, 0, 212);*/
+  position: relative;
+  top: 120px;
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.container-details{
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    height: 100%;
+    /*border: 2px solid chartreuse;*/
+    align-items: center;
+    position: relative;
+    left: 180px;
+    background-color: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.container-info{
+    /*border: 2px solid rgb(255, 230, 2);*/
+    padding: 10px;
+    position: relative;
+    left: 80px;
+    width:fit-content;
+    width: 60%;
+    height: 100%;
+    align-self:center;
+
+}
+
+/*Product part styling*/
+.product-container{
+  /*border: 2px solid rgb(115, 187, 221);*/
+  position: relative;
+  top: 180px;
+  width: 90%;
+}
+
+.product-wrapper{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-details{
+  /*border: 2px solid rgb(192, 243, 151);*/
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  margin: 20px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  padding-top: 10px;
+  padding-bottom: 12px;
+  background-color: #ffffff;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.product-text{
+  width: 50%;
+  position: relative;
+  left: 60px;;
+}
+
+/*Image styling*/
+.shop-img-container{
+  /*border: 2px solid rgb(184, 67, 21);*/
+  border-radius:10px;
+  margin: 1%;
+  padding: 1%;
+  width: 20%;
+  height: 30%;
+  position: relative;
+  left:50px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.shop-img{
+  width: 100%;
+  height: 100%
+}
+
+.container-img{
+  width: 100px;
+  height: 100px;
+  position: relative;
+  left:30px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  border-radius: 10px;
+}
+
+img{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius:10px;
+  }
+/*------------*/
+
+.button-container{
+  width: 40%;
+  height: 25%;
+  align-self: center;
+  /*float: right;*/
+  position: relative;
+  left: 150px;
+}
+
+.button-add{
+  width: 6rem;
+  height: 2rem;
+  background: linear-gradient(to right, #D86997,#F2C14E);
+  border: 0;
+  outline:none;
+  border-radius: 10px;
+}
+
+.button-cart{
+  width: 10rem;
+  height: 2rem;
+  float: right;
+  position: relative;
+  left: 150px;
+  background:  #D86997;
+  color: #ffffff;
+  border: 0;
+  outline:none;
+  border-radius: 10px;
+}
+
+.button-cart:hover{
+  background:  #db4081;
+}
+
+#product-cart{
+  margin-bottom: 30px;
+  margin-top: 20px;
+  border-radius: 10px;
+  /*background:#2b7072;*/
+  background-color: #1c3738;
+  color: #ffffff;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(87, 70, 70, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+
+.cart-details{
+  float: left;
+  margin-left: 5%;
+  /*border: 2px solid rgb(56, 52, 12);*/
+}
+
+/*text styling*/
+h2{
+  font-size: 24px;
+  font-weight: bolder;
+}
+p{
+  font-size: 14px;
+}
+#item-title{
+  font-size: 16px;
+  font-weight: bolder;
+}
+.button-add,.button-cart{
+  font-size: 14px;
+  font-weight: bold;
+}
+.button-add{
+  font-weight: light;
+}
