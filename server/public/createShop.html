@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScrapOut | create shop</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" type="text/css" href="createShop.css">
+</head>
+
+<body>
+    <div class="main-container">
+      <div class="header">
+        <div id="scrapout-tag-container">
+          <img id="scrap-out-tag" src="img/ScrapOut icon.png">
+        </div>
+        <div class="link-container">
+          <p id="home">Home</p>
+          <p id="account">Account</p>
+          <button id="logout">Log Out</button>
+        </div>
+      </div>
+      </div> 
+    <div class="container-list">
+        <div class="boxes">
+          <div class="sort-box-wrapper">
+            <div class="sort-tools">
+              <h3 id="sort-by-head">Hello,NAME</h3>
+              <ul id="sort-category">
+                <li><a>Account</a></li>
+                <li><a>Orders</a></li>
+              </ul>
+            </div>
+            <div class="box-wrapper">
+              <div class="box-head">
+                <h1 id="heading">Create Shop</h1><hr id="shop-head">
+              </div>
+                <div class="shop-info">
+                    <div id="info-element">
+                          <input class="input-field" id="shopname" placeholder="Shopname" required>
+                          <input type="password" class="input-field" id="location" placeholder="Location" required>
+                          <textarea id="description-id" class="description-field" rows="5" cols="33" placeholder="Description"></textarea>
+                          <button id="upload-photo-btn">Upload Photos</button>
+                    </div>
+                    <div class="product-info">
+                      <h2>Setup Products</h2>
+                      <h3 id="category-head">Categories</h3>
+                      <div class="category-wrapper">
+                        <div class="paper">
+                          <button id="paper-btn" class="category-btn">Paper</button>
+                        </div>
+                        <div class="e-waste">
+                          <button id="e-waste-btn" class="category-btn">E-waste</button>
+                        </div>
+                        <div class="plastic">
+                          <button id="plastic-btn" class="category-btn">Plastic</button>
+                        </div>
+                        <div class="metal">
+                          <button id="metal-btn" class="category-btn">Metal</button>
+                        </div>
+                        <div class="other"> 
+                          <button id="other-btn" class="category-btn">Other</button>
+                        </div>
+                        <div class="div6"> </div>
+                      </div>
+                      <div class="add-item" id="paper-div" style="display:none">
+                        <h2 id="category-head">Paper</h2>
+                        <div class="items-wrapper">
+                        <div class="item-field">
+                          <input class="item-name-field" id="paper-item" placeholder="Product">
+                          <input class="price-field" id="paper-price" placeholder="Price (per kg)">
+                          <span class="material-symbols-outlined" id="add-icon">
+                            add_circle
+                            </span>
+                        </div>
+                      </div>
+                        <button class="add-item-btn" id="add-item-paper">Add Item</button>
+                        <p class="add-item-tag" id="add-item-paper-tag" style="display:none">Item Added!!!</p>
+                      </div>
+                      <div class="add-item" id="e-waste-div" style="display:none">
+                        <h2 id="category-head">E-waste</h2>
+                        <div class="items-wrapper">
+                        <div class="item-field">
+                          <input class="item-name-field" id="e-waste-item" placeholder="Product">
+                          <input class="price-field" id="e-waste-price" placeholder="Price (per kg)">
+                          <span class="material-symbols-outlined" id="add-icon">
+                            add_circle
+                            </span>
+                        </div>
+                      </div>
+                        <button class="add-item-btn" id="add-item-e-waste">Add Item</button>
+                        <p class="add-item-tag" id="add-item-e-waste-tag" style="display:none">Item Added!!!</p>
+                      </div>
+                      <div class="add-item" id="plastic-div" style="display:none">
+                        <h2 id="category-head">Plastic</h2>
+                        <div class="items-wrapper">
+                        <div class="item-field">
+                          <input class="item-name-field" id="plastic-item" placeholder="Product">
+                          <input class="price-field" id="plastic-price" placeholder="Price (per kg)">
+                          <span class="material-symbols-outlined" id="add-icon">
+                            add_circle
+                            </span>
+                        </div>
+                      </div>
+                        <button class="add-item-btn" id="add-item-plastic">Add Item</button>
+                        <p class="add-item-tag" id="add-item-plastic-tag" style="display:none">Item Added!!!</p>
+                      </div>
+                      <div class="add-item" id="metal-div" style="display:none">
+                        <h2 id="category-head">Metal</h2>
+                        <div class="items-wrapper">
+                          <div class="item-field">
+                            <input class="item-name-field" id="metal-item" placeholder="Product">
+                            <input class="price-field" id="metal-price" placeholder="Price (per kg)">
+                            <span class="material-symbols-outlined" id="add-icon">
+                              add_circle
+                              </span>
+                          </div>
+                        </div>
+                        <button class="add-item-btn" id="add-item-metal">Add Item</button>
+                        <p class="add-item-tag" id="add-item-metal-tag" style="display:none">Item Added!!!</p>
+                      </div>
+                      <div class="add-item" id="other-div" style="display:none">
+                        <h2 id="category-head">Other</h2>
+                        <div class="items-wrapper">
+                        <div class="item-field">
+                          <input class="item-name-field" id="other-item" placeholder=" Product">
+                          <input class="price-field" id="other-price" placeholder=" Price (per kg)">
+                          <span class="material-symbols-outlined" id="add-icon">
+                            add_circle
+                            </span>
+                        </div>
+                      </div>
+                        <button class="add-item-btn" id="add-item-other">Add Item</button>
+                        <p class="add-item-tag" id="add-item-other-tag" style="display:none">Item Added!!!</p>
+                      </div>
+                    </div>
+                    <div class="save-btn-wrapper">
+                      <button id="save-btn">Save</button>
+                    </div>
+                </div>
+                </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <script src="createShop.js"></script>
+</body>
+
+</html>
